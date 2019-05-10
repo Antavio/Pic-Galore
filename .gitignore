@@ -71,7 +71,7 @@ coverage.xml
 *.mo
 
 # Django stuff:
-
+.vscode/
 # Flask stuff:
 instance/
 .webassets-cache
