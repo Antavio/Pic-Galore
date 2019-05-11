@@ -18,3 +18,9 @@ def search_images(request):
         message = "You haven't searched yet"
         return render(request,"collage/search.html",{"message":message})
 
+def single_image(request,image_id):
+    try:
+        single_image = Image.objects.get(id=image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'collage/image.html',{"modal_image":single_image})
