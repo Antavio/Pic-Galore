@@ -78,7 +78,7 @@ coverage.xml
 *.mo
 
 # Django stuff:
-
+virtual/
 # Flask stuff:
 instance/
 .webassets-cache
@@ -144,7 +144,7 @@ dmypy.json
 
 ### Linux ###
 *~
-virtual/
+
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 

@@ -30,5 +30,9 @@ class Image(models.Model):
         return self.image_name
     class Meta:
         ordering = ['-id']
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
 
 
