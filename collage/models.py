@@ -10,6 +10,9 @@ class Location(models.Model):
     def save_location(self):
         self.save()
 
+    def delete_location(self):
+        self.delete()
+
 class Category(models.Model):
     category = models.CharField(max_length=50)
 
@@ -18,6 +21,9 @@ class Category(models.Model):
 
     def save_category(self):
         self.save()
+
+    def delete_category(self):
+        self.delete()
 
 class Image(models.Model):
     image_path = models.ImageField(upload_to = 'images/',default="")
@@ -30,6 +36,13 @@ class Image(models.Model):
         return self.image_name
     class Meta:
         ordering = ['-id']
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
     @classmethod
     def all_images(cls):
         images = cls.objects.all()
@@ -39,4 +52,13 @@ class Image(models.Model):
         searched_images = cls.objects.filter(image_category__category__icontains=search_term)
         return searched_images
 
+    @classmethod
+    def filter_by_location(cls,location_filter):
+        located_images = Image.objects.filter(image_location__id=location_filter)
+        return located_images
 
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = Image.objects.get(id=id)
+        return image
+    
