@@ -54,3 +54,8 @@ class ImageTestCase(TestCase):
     def test_get_image_by_id(self):
         images = Image.get_image_by_id(self.new_image.id)
         self.assertTrue(images == self.new_image)
+
+    def test_delete_image(self):
+        images = Image.get_image_by_id(self.new_image.id)
+        self.images.delete_image()
+        self.assertTrue(len(images)==0)
