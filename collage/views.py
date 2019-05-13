@@ -4,7 +4,8 @@ from .models import Image,Location,Category
 # Create your views here.
 def index(request):
     image_catalogue = Image.all_images()
-    return render(request,'collage/index.html',{"all_images":image_catalogue})
+    location = Location.get_location()
+    return render(request,'collage/index.html',{"all_images":image_catalogue,"location":location})
 
 def search_images(request):
     if 'image' in request.GET and request.GET["image"]:
@@ -18,9 +19,10 @@ def search_images(request):
         message = "You haven't searched yet"
         return render(request,"collage/search.html",{"message":message})
 
-def single_image(request,image_id):
+def filter_location(request,image_id):
     try:
-        single_image = Image.objects.get(id=image_id)
+        location = Location.get_location()
+        located_images = Image.objects.filter(image_location=image_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,'collage/image.html',{"modal_image":single_image})
+    return render(request,'collage/image.html',{"located_images":located_images,"locations":location})
