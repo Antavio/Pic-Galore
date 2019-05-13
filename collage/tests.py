@@ -12,6 +12,11 @@ class LocationTestClass(TestCase):
         locations = Location.objects.all()
         self.assertTrue(len(locations)>0)
 
+    def test_delete_location(self):
+        self.mombasa.delete_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) == 0)
+
 class CategoryTestClass(TestCase):
     def setUp(self):
         self.pets = Category(category='Animals')
@@ -22,7 +27,13 @@ class CategoryTestClass(TestCase):
     def test_save_method(self):
         self.pets.save_category()
         categories = Category.objects.all()
-        self.assertTrue(len(categories)>0)    
+        self.assertTrue(len(categories)>0)  
+
+    def test_delete_category(self):
+        self.pets.delete_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category) == 0)
+
 
 class ImageTestCase(TestCase):
     def setUp(self):
@@ -56,6 +67,7 @@ class ImageTestCase(TestCase):
         self.assertTrue(images == self.new_image)
 
     def test_delete_image(self):
+        
         images = Image.get_image_by_id(self.new_image.id)
-        self.images.delete_image()
+        self.new_image.delete_image()
         self.assertTrue(len(images)==0)

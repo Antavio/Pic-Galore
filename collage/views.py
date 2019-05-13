@@ -5,7 +5,7 @@ from .models import Image,Location,Category
 def index(request):
     image_catalogue = Image.all_images()
     location = Location.get_location()
-    return render(request,'collage/index.html',{"all_images":image_catalogue,"location":location})
+    return render(request,'collage/index.html',{"all_images":image_catalogue,"locations":location})
 
 def search_images(request):
     if 'image' in request.GET and request.GET["image"]:

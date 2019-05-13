@@ -11,7 +11,7 @@ class Location(models.Model):
         self.save()
 
     def delete_location(self):
-        self.delete()
+        Location.objects.filter().delete()
 
     @classmethod
     def get_location(cls):
@@ -28,7 +28,7 @@ class Category(models.Model):
         self.save()
 
     def delete_category(self):
-        self.delete()
+        Category.objects.filter().delete()
 
 class Image(models.Model):
     image_path = models.ImageField(upload_to = 'images/',default="")
