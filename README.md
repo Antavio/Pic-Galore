@@ -5,7 +5,15 @@
 
 ## Description
 Pic Galore is a django application that allows a user/client to view different categories of photos. When the user clicks on a single photo the image is expanded enabling the user to view details of the photo eg Name of the image, category and location. A user can also search photos using different categories eg Nature,Technology,Vacation,Sports,Music etc.Finally the user can filter photos based on the location.
+## Behaviour Driven Development
 
+| Behaviour                                                                                 | Input                                                     | Output                                                                            |
+|-------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------|
+| User view various photos on homepage                                                      | On page load                                              | Display various categories of photos                                              |
+| A single image appears on a modal                                                         | User clicks on a single image                             | A single modal image appears on top of other images displaying image descriptions |
+| Filters all images on a specific category                                                 | User searches images based on categories                  | All images based on that category all displayed on a different template           |
+| All images of different categories but the same location are displayed                    | User clicks on the dropdown menu with different locations | A page with images of a particular location appear                                |
+| The program should navigate home page when the app name/Home Tag is clicked on the navbar | Click on Pic-Galore/Home Tag  on the navigation bar       | Redirect to the Home page                                                         |
 ### Project Setup instructions
 Use the following commands to use this project.
 - git clone `https://github.com/Antavio/Pic-Galore.git`
